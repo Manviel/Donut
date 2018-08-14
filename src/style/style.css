@@ -1,0 +1,50 @@
+.flex { display: flex; }
+
+.text { text-align: center; }
+
+.space { justify-content: space-between; }
+
+.col { flex-direction: column; }
+
+.grey { color: #AAAAAC; }
+
+.nav { padding: 25px 0; }
+
+.active {
+  color: #585C77;
+  font-weight: bold;
+}
+
+.sub {
+  font-size: 12px;
+  padding-top: 14px; 
+}
+
+.px-24 {
+  font-size: 24px;
+  padding-bottom: 10px; 
+}
+
+.circle {
+  display: block;
+  height: 3.8rem;
+  width: 3.8rem;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1rem 4rem rgba(0,0,0,0.1);
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.15);
+}
+
+.icon {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background: #FF7484;
+}

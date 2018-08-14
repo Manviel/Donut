@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "preact": "^8.3.0",
-    "preact-router": "^2.6.1",
     "react-foursquare": "^1.0.3"
   }
 }
