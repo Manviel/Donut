@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "sugar",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "build": "preact build",
+    "serve": "preact build && preact serve",
+    "dev": "preact watch",
+    "lint": "eslint src"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-synacor"
+  },
+  "eslintIgnore": [
+    "build/*"
+  ],
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-synacor": "^3.0.1",
+    "if-env": "^1.0.4",
+    "preact-cli": "^2.2.1"
+  },
+  "dependencies": {
+    "preact": "^8.3.0",
+    "preact-router": "^2.6.1",
+    "react-foursquare": "^1.0.3"
+  }
+}
