@@ -12,7 +12,7 @@ class App extends Component {
 	state = {
 		items: [],
 		query: '',
-		near: 'San Francisco, CA'
+		near: 'San Francisco'
 	};
 
 	componentDidMount() {
@@ -47,7 +47,24 @@ class App extends Component {
 			<div id="app">
 				<Header />
 				<Nav />
-				<Card />
+				<section class="flex col align">
+					{this.state.items.map(item => {
+						if (item.photo) {
+							let photoUrl = item.photo.prefix + '350x350' + item.photo.suffix;
+							let categoryIcon = item.venue.categories[0].icon.prefix + '100' + item.venue.categories[0].icon.suffix;
+							let venueUrl = "https://foursquare.com/v/" + item.venue.id;
+
+							return (
+								<Card key={item.venue.id}
+									item={item.venue}
+									venueUrl={venueUrl}
+									photoUrl={photoUrl}
+									categoryIcon={categoryIcon}
+								/>
+							);
+						}
+					})}
+				</section>
 			</div>
 		);
 	}
