@@ -1,10 +1,12 @@
 import { Component } from 'preact';
+import LazyLoad from 'react-lazy-load';
 
-import foursquare from '../config';
+import foursquare from '../data/config';
+import icons from '../data/icons.json';
 
-import Header from './Header';
-import Nav from './Nav';
-import Card from './Card';
+import Header from 'async!./Header';
+import Nav from 'async!./Nav';
+import Card from 'async!./Card';
 
 import '../style/style.css';
 
@@ -34,19 +36,13 @@ class App extends Component {
 			});
 	}
 
-	setQuery = e => {
-		this.setState({ query: e.target.value });
-	}
-
-	setLocation = e => {
-		this.setState({ near: e.target.value });
-	}
-
 	render() {
 		return (
 			<div id="app">
 				<Header />
-				<Nav />
+				<nav class="flex space nav">
+					{icons.map(i => <Nav key={i.id} src={i.src} label={i.label} />)}
+				</nav>
 				<section class="flex col align">
 					{this.state.items.map(item => {
 						if (item.photo) {
@@ -55,12 +51,14 @@ class App extends Component {
 							let venueUrl = "https://foursquare.com/v/" + item.venue.id;
 
 							return (
-								<Card key={item.venue.id}
-									item={item.venue}
-									venueUrl={venueUrl}
-									photoUrl={photoUrl}
-									categoryIcon={categoryIcon}
-								/>
+								<LazyLoad height={515} offsetVertical={-100}>
+									<Card key={item.venue.id}
+										item={item.venue}
+										venueUrl={venueUrl}
+										photoUrl={photoUrl}
+										categoryIcon={categoryIcon}
+									/>
+								</LazyLoad>
 							);
 						}
 					})}
