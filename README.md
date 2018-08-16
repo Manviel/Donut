@@ -1,6 +1,6 @@
-# Sugar
+# Donut
 
-В какие места сходить на Preact
+Where to go https://gallant-babbage-016443.netlify.com
 
 ## CLI Commands
 
