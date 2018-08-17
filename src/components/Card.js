@@ -15,7 +15,6 @@ const Card = ({ item, venueUrl, photoUrl, categoryIcon }) => (
         <img src={require("../assets/img/pointer.svg")} class="pointer" alt="go" />
       </a>
     </div>
-    <span>Love</span>
   </article>
 );
 

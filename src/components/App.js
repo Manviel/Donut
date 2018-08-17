@@ -14,7 +14,7 @@ class App extends Component {
 	state = {
 		items: [],
 		query: '',
-		near: 'San Francisco'
+		total: 0
 	};
 
 	componentDidMount() {
@@ -23,7 +23,7 @@ class App extends Component {
 
 	fetchVenues = () => {
 		const params = {
-			"near": this.state.near,
+			"near": 'Kharkiv',
 			"indent": 'browse',
 			"query": this.state.query
 		};
@@ -31,17 +31,23 @@ class App extends Component {
 		foursquare.venues.recommendations(params)
 			.then(res => {
 				this.setState({
-					items: res.response.group.results
+					items: res.response.group.results,
+					total: res.response.group.totalResults
 				});
 			});
+	}
+
+	setQuery = e => {
+		this.setState({ query: e.target.innerText });
+		this.fetchVenues();
 	}
 
 	render() {
 		return (
 			<div id="app">
-				<Header />
+				<Header total={this.state.total} />
 				<nav class="flex space nav">
-					{icons.map(i => <Nav key={i.id} src={i.src} label={i.label} />)}
+					{icons.map(i => <Nav key={i.id} src={i.src} label={i.label} setQuery={this.setQuery} />)}
 				</nav>
 				<section class="flex col align">
 					{this.state.items.map(item => {
