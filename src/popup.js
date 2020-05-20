@@ -1,11 +1,3 @@
-const foursquare = {
-  client_id: "HPBPKSWKU1A1PFOT3OJXWHUYRQGAC0P1VFMW44DFXVO532T1",
-  client_secret: "ZFUREBXR2PHQHAGKH045CXMXMBVVVZRKIZDP2UBTAHVPOEGF",
-  date: 20180323,
-  query: "",
-  coords: [40.72, -74.01],
-};
-
 const root = document.querySelector("#root");
 const loader = document.createElement("aside");
 
@@ -26,25 +18,20 @@ hideSpinner = () => {
   document.body.removeChild(loader);
 };
 
-const fetchVenues = async () => {
-  const request = await fetch(
-    `https://api.foursquare.com/v2/venues/explore?client_id=${foursquare.client_id}&client_secret=${foursquare.client_secret}&v=${foursquare.date}&ll=${foursquare.coords[0]},${foursquare.coords[1]}&query=${foursquare.query}`
-  );
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.json) {
+    const result = request.json;
 
-  const result = await request.json();
-
-  if (request.ok) {
-    hideSpinner();
-
-    getResponse(result.response.groups[0].items);
-    totalEntries(result.response.totalResults);
-  } else {
+    getResponse(result.groups[0].items);
+    totalEntries(result.totalResults);
     hideSpinner();
   }
-};
+
+  sendResponse();
+});
 
 const getResponse = (data) => {
-  console.log(data);
+  root.innerHTML = "";
 
   data.map((place) => {
     const i = place.venue;
@@ -55,6 +42,8 @@ const getResponse = (data) => {
     const venueUrl = "https://foursquare.com/v/" + i.id;
 
     const label = i.categories[0].shortName;
+
+    const summary = place.reasons.items[0].summary;
 
     const card = document.createElement("article");
 
@@ -69,9 +58,9 @@ const getResponse = (data) => {
         <img src=${categoryIcon} class="category icon" />
       </section>
       <div class="flex col">
-        <p class="px-15">${i.location.address}</p>
+        <p class="px-15">${i.location.address || i.location.country}</p>
         <div class="sub">
-          <a href="${venueUrl}" target="_blank" class="reference rad">${i.hereNow.summary}</a>
+          <a href="${venueUrl}" target="_blank" class="reference rad">${summary}</a>
         </div>
       </div>
     `;
@@ -88,7 +77,8 @@ const totalEntries = (total) => {
 
 const initialLoading = () => {
   showSpinner();
-  fetchVenues();
+
+  chrome.runtime.sendMessage({ query: "" });
 };
 
 initialLoading();

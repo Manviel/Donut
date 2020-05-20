@@ -48,6 +48,7 @@ body {
 .px-24 {
   font-size: 2.2rem;
   margin-bottom: 0.6rem;
+  text-transform: capitalize;
 }
 
 .px-15 {

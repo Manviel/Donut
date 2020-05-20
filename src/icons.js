@@ -19,6 +19,11 @@ const icons = [
     src: "doughnut.svg",
     label: "Donuts",
   },
+  {
+    id: "05",
+    src: "setting.svg",
+    label: "Add",
+  },
 ];
 
 const nav = document.querySelector("nav");
@@ -37,7 +42,15 @@ const render = () => {
     `;
 
     nav.appendChild(item);
+
+    item.addEventListener("click", setQuery);
   });
 };
+
+function setQuery() {
+  showSpinner();
+
+  chrome.runtime.sendMessage({ query: this.innerText });
+}
 
 render();

@@ -1,7 +1,5 @@
 # Donut
 
-## CLI Commands
-
 ### install dependencies
 
 ```
