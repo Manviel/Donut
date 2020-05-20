@@ -2,13 +2,7 @@
   "name": "Preact",
   "version": "1.0",
   "description": "Discover places in any city",
-  "permissions": [
-    "tabs",
-    "storage",
-    "geolocation",
-    "http://*/*",
-    "https://*/*"
-  ],
+  "permissions": ["storage", "geolocation", "http://*/*", "https://*/*"],
   "background": {
     "scripts": ["src/background.js"]
   },
