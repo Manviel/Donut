@@ -1,0 +1,63 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  position: fixed;
+  top: 600px;
+  left: 0;
+  background-color: var(--c-border);
+  width: 100%;
+  padding: 1.3rem 1.6rem;
+}
+
+.payment {
+  letter-spacing: 0.399px;
+  font-size: 2.1rem;
+  line-height: 2.4rem;
+}
+
+.cancel {
+  background: transparent;
+  border: none;
+  color: var(--c-primary);
+  font-size: 1.7rem;
+  line-height: 2.2rem;
+}
+
+.group {
+  margin-bottom: 1.2rem;
+}
+
+.px-14 {
+  font-size: 1.5rem;
+}
+
+.small {
+  margin-left: 2px;
+}
+
+.bill {
+  width: 4.2rem;
+  height: 2.6rem;
+  background-color: var(--c-violet);
+  border-radius: 4px;
+}
+
+.caption {
+  color: var(--c-black);
+  text-transform: uppercase;
+  max-width: 230px;
+}
+
+.total {
+  letter-spacing: 0.019em;
+  font-size: 2rem;
+  line-height: 16px;
+  color: var(--c-black);
+}

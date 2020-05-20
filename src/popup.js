@@ -1,4 +1,4 @@
-const root = document.querySelector("#root");
+const root = document.getElementById("root");
 const loader = document.createElement("aside");
 
 const showSpinner = () => {
@@ -59,9 +59,9 @@ const getResponse = (data) => {
       </section>
       <div class="flex col">
         <p class="px-15">${i.location.address || i.location.country}</p>
-        <div class="sub">
-          <a href="${venueUrl}" target="_blank" class="reference rad">${summary}</a>
-        </div>
+        <a href="${venueUrl}" target="_blank" class="reference sub">
+          <button class="btn rad">${summary}</button>
+        </a>
       </div>
     `;
 
@@ -70,7 +70,7 @@ const getResponse = (data) => {
 };
 
 const totalEntries = (total) => {
-  const header = document.querySelector("#total");
+  const header = document.getElementById("total");
 
   header.innerHTML = ` Total: ${total} results`;
 };

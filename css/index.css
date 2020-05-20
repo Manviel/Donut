@@ -62,16 +62,20 @@ body {
   margin-top: 1.1rem;
 }
 
-.reference {
+.btn {
   background-color: var(--c-primary);
   color: var(--c-white);
-  text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   padding: 0.6rem 1rem;
   transition: all 0.2s ease-in-out;
+  border: none;
 }
 
-.reference:hover {
+.reference {
+  text-decoration: none;
+}
+
+.btn:hover {
   background-color: var(--c-violet);
 }
 
