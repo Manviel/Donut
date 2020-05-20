@@ -1,0 +1,11 @@
+:root {
+  --c-secondary: #4cd964;
+  --c-primary: #007aff;
+  --c-black: #000;
+  --c-white: #fff;
+  --c-light: rgba(0, 0, 0, 0.4);
+  --c-dark: #27292d;
+  --c-active: #585c77;
+  --c-border: #f2f2f4;
+  --c-violet: #7e94d4;
+}

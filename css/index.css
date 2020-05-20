@@ -10,14 +10,19 @@ body {
   width: 100%;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
+  width: 460px;
   background: #fafafc;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
 
 .app {
-  padding: 2rem;
+  padding: 1.1rem 1.6rem;
 }
 
 .flex {
@@ -41,11 +46,48 @@ body {
 }
 
 .px-24 {
-  font-size: 24px;
-  padding-bottom: 10px;
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.px-15 {
+  font-size: 1.5rem;
+  color: var(--c-light);
+  margin-bottom: 1.1rem;
+}
+
+.sub {
+  font-size: 1.2rem;
+  margin-top: 1.1rem;
+}
+
+.reference {
+  background-color: var(--c-primary);
+  color: var(--c-white);
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 0.6rem 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.reference:hover {
+  background-color: var(--c-violet);
 }
 
 .rad {
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 2px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--c-light);
   border-radius: 10px;
 }
 
@@ -64,7 +106,7 @@ body {
 }
 
 .progress-bar {
-  background-color: #7e94d4;
+  background-color: var(--c-violet);
   width: auto;
   top: 0;
   left: 0;
