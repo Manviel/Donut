@@ -1,27 +1,19 @@
 # Donut
 
-### install dependencies
-
-```
-npm install
-```
-
 ### serve with hot reload at localhost:8080
 
-```
-npm run dev
-```
+Chrome API [Extension](https://developer.chrome.com/extensions/api_index)
 
 ### build for production with minification
 
-```
-npm run build
-```
+For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
 
 ### test the production build locally
 
-```
-npm run serve
-```
+Icons pack [Morning Breakfast](https://www.flaticon.com/packs/morning-breakfast-3)
 
-For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
+### install dependencies
+
+```
+npm start
+```

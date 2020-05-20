@@ -14,6 +14,7 @@
   background-color: var(--c-border);
   width: 100%;
   padding: 1.3rem 1.6rem;
+  height: 22rem;
 }
 
 .payment {
@@ -60,4 +61,76 @@
   font-size: 2rem;
   line-height: 16px;
   color: var(--c-black);
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.circle-blue {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--c-secondary);
+  animation: expand 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.circle-white {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 92px;
+  height: 92px;
+  transform: scale(0);
+  border-radius: 50%;
+  background: var(--c-white);
+  animation: expand 1s 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.check-svg {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  top: 40px;
+  left: 160px;
+  transform-origin: center;
+  animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0.7s 1 both scaleCheck;
+}
+
+.check-poly {
+  fill: transparent;
+  stroke-width: 2;
+  stroke-dasharray: var(--px-length) var(--px-length);
+  stroke: var(--c-secondary);
+  animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0.7s 1 both drawCheck;
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleCheck {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes drawCheck {
+  0% {
+    stroke-dashoffset: var(--px-length);
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }

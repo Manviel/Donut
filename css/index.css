@@ -69,10 +69,12 @@ body {
   padding: 0.6rem 1rem;
   transition: all 0.2s ease-in-out;
   border: none;
+  cursor: pointer;
 }
 
 .reference {
   text-decoration: none;
+  color: inherit;
 }
 
 .btn:hover {
