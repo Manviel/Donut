@@ -82,7 +82,7 @@ body {
 }
 
 .rad {
-  border-radius: 1rem;
+  border-radius: 1.2rem;
 }
 
 ::-webkit-scrollbar {
@@ -109,7 +109,7 @@ body {
   height: 4px;
   overflow: hidden;
   position: relative;
-  background-color: rgb(167, 202, 237);
+  background-color: rgb(var(--c-basic));
 }
 
 .progress-bar {

@@ -61,3 +61,10 @@
 .category:hover {
   background-color: var(--c-primary);
 }
+
+.notification {
+  margin: 1.1rem 0;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: rgba(var(--c-basic), 0.2);
+}
