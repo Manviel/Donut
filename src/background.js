@@ -4,17 +4,19 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.query) {
-    chrome.storage.sync.get(["coords"], (sync) => {
-      fetchVenues(sync.coords, request.query);
-    });
+    useVenues(request.query);
   } else {
-    chrome.storage.sync.get(["coords"], (sync) => {
-      fetchVenues(sync.coords, "");
-    });
+    useVenues("");
   }
 
   sendResponse();
 });
+
+const useVenues = (query) => {
+  chrome.storage.sync.get(["coords"], (sync) => {
+    fetchVenues(sync.coords, query);
+  });
+};
 
 const showPosition = (position) => {
   chrome.storage.sync.set({

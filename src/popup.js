@@ -55,6 +55,8 @@ const getResponse = (data) => {
 
     card.className = "card rad flex col space";
 
+    card.setAttribute("id", i.id);
+
     card.innerHTML = `
       <section class="flex space">
         <div>
@@ -89,7 +91,9 @@ const totalEntries = (total) => {
   header.innerHTML = ` Total: ${total} results`;
 };
 
-const createModal = () => {
+const createModal = (e) => {
+  chrome.storage.sync.set({ id: e.path[3].id });
+
   modal.className = "overlay";
 
   modal.innerHTML = `
@@ -189,6 +193,13 @@ const checkAnimation = () => {
       </svg>
     </article>
   `;
+
+  chrome.storage.sync.get(["id"], (sync) => {
+    const ordered = document.getElementById(sync.id);
+
+    ordered.children[1].children[1].children[1].disabled = true;
+    ordered.children[1].children[1].children[1].innerText = "Ordered";
+  });
 
   setTimeout(() => {
     closeModal();
